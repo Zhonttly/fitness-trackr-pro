@@ -15,7 +15,7 @@ import ActivityDetails from "./activities/ActivityDetail.jsx";
 export default function App() {
   return (
     <Routes>
-      <Route elemnent={<Layout />}>
+      <Route element={<Layout />}>
         <Route index element={<ActivitiesPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
@@ -25,6 +25,4 @@ export default function App() {
       </Route>
     </Routes>
   );
-
-  return <Error404 />;
 }
