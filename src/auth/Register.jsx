@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "./AuthContext";
-import { NavLink } from "react-router";
+import { Link } from "react-router";
 
 /** A form that allows users to register for a new account */
 export default function Register() {
@@ -36,7 +36,7 @@ export default function Register() {
         <button>Register</button>
         {error && <p role="alert">{error}</p>}
       </form>
-      <NavLink to="/login">Already have an account? Log in here.</NavLink>
+      <Link to="/login">Already have an account? Log in here.</Link>
     </>
   );
 }
