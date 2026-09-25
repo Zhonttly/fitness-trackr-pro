@@ -5,6 +5,7 @@
  */
 
 import { createContext, useContext, useState } from "react";
+import { useNavigate } from "react-router";
 
 // import.meta.env allows us to access environment variables,
 // which are defined in a file named .env
@@ -13,7 +14,9 @@ const API = import.meta.env.VITE_API;
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
+  // Set up states and imported hooks
   const [token, setToken] = useState();
+  const navigate = useNavigate();
 
   const register = async (credentials) => {
     const response = await fetch(API + "/users/register", {
@@ -26,6 +29,7 @@ export function AuthProvider({ children }) {
       throw Error(result.message);
     }
     setToken(result.token);
+    navigate("/activities");
   };
 
   const login = async (credentials) => {
@@ -39,6 +43,7 @@ export function AuthProvider({ children }) {
       throw Error(result.message);
     }
     setToken(result.token);
+    navigate("/activities");
   };
 
   const logout = () => setToken(null);

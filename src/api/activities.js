@@ -12,6 +12,18 @@ export async function getActivities() {
   }
 }
 
+/** Fetches a single activity from the API */
+export async function getActivity(id) {
+  try {
+    const response = await fetch(API + "/activities/" + id);
+    const result = await response.json();
+    return result;
+  } catch (err) {
+    console.error(err);
+    return [];
+  }
+}
+
 /**
  * Sends a new activity to the API to be created.
  * A valid token is required.
